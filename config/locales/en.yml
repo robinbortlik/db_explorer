@@ -7,6 +7,7 @@ en:
   false: no
   
   
+  
   database_connections:
     index:
       new: new
@@ -15,7 +16,14 @@ en:
   schemas:
     show:
       no_model: Please select some table from list
-          
+      
+  search:
+    sorting: Sorting
+    add_sort: Add sort
+    conditions: Conditions
+    add_condition: Add condition
+    remove: Remove    
+    
   helpers:
     links:
       cancel: Cancel

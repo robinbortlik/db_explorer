@@ -12,6 +12,7 @@ gem 'simple_form'
 gem 'haml'
 gem 'twitter-bootstrap-rails'
 gem "kaminari"
+gem "ransack", :git => "https://github.com/ernie/ransack.git"
 
 # Gems used only for assets and not required
 # in production environments by default.

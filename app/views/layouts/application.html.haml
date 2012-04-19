@@ -21,13 +21,19 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand{:href => "/"} DbExplorer
+          %a.brand{:href => "/"} db Explorer
           .container-fluid.nav-collapse
             %ul.nav
               - @database_connections.each do |database_connection|
                 %li= link_to database_connection.database, schemas_path(database_connection)
         
     .container-fluid
+      - [:notice, :error, :alert].each do |level| 
+        - unless flash[level].blank? 
+          .alert{:class => flash_class(level)}
+            %a.close{:href => "#", :"data-dismiss"=>"alert"} ×
+            = content_tag :p, flash[level]
+            
       .row-fluid
         .span3
           .well.sidebar-nav
@@ -36,16 +42,16 @@
               - if @schema
                 - @schema.get_tables.each do |table|
                   %li= link_to table, schema_path(@database_connection, :name => table)
-              
-          / /.well
-        / /span
         .span9
           = yield
-      / /row
       %footer
-    / /container
-    /
-      Javascripts
-      \==================================================
-    / Placed at the end of the document so the pages load faster
+  
     = javascript_include_tag "application"
+    :javascript
+        $(function() {
+          #{yield :document_ready}
+        });
+    
+    - if !(flash[:notice] || flash[:error] || flash[:alert]).blank?
+      :javascript
+        $(".alert").alert()

@@ -1,0 +1,17 @@
+= search_form_for @search, url: search_schemas_path(@database_connection, name: @name), html: {method: :post} do |f|
+  - setup_search_form f
+  %fieldset.searchFieldset
+    %legend
+      = t("search.sorting")  
+    = f.sort_fields do |s|
+      = render '/search/sort_fields', f: s
+    = button_to_add_fields icon("plus"), f, :sort, t("search.add_sort")
+  %fieldset.searchFieldset
+    %legend
+      = t("search.conditions")
+    = f.condition_fields do |c|
+      = render '/search/condition_fields', f: c
+    = button_to_add_fields icon("plus"), f, :condition, t("search.add_condition")
+  %fieldset.buttons
+    = f.submit
+    = link_to t(".cancel"), search_schemas_path(@database_connection, name: @name, :clear_search => "1")

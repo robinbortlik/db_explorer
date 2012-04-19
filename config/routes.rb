@@ -51,14 +51,16 @@ DbExplorer::Application.routes.draw do
   
   resources :database_connections, :except => [:show]
   
-  match "database_connections/:id/schemas" => "schemas#show", :as => :schemas
-  match "database_connections/:id/schemas/:name" => "schemas#show", :as => :schema
+  get "database_connections/:id/schemas" => "schemas#show", :as => :schemas
+  get "database_connections/:id/schemas/:name" => "schemas#show", :as => :schema
   
   delete "abstract/:connection_id/schema/:name/:id" => "abstract_objects#destroy", :as => :abstract
-  post "abstract/:connection_id/schema/:name/:id" => "abstract_objects#create", :as => :abstracts
+  post "abstract/:connection_id/schema/:name" => "abstract_objects#create", :as => :abstracts
   put "abstract/:connection_id/schema/:name/:id" => "abstract_objects#update", :as => :abstract
   get "abstract/:connection_id/schema/:name/:id/edit" => "abstract_objects#edit", :as => :edit_abstract
-  get "abstract/:connection_id/schema/:name/:id/new" => "abstract_objects#new", :as => :new_abstract
+  get "abstract/:connection_id/schema/:name/new" => "abstract_objects#new", :as => :new_abstract
+  
+  match "database_connections/:id/schemas/:name/search" => "schemas#search", :via => [:get, :post], :as => :search_schemas
   
   root :to => 'database_connections#index'
 

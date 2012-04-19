@@ -64,12 +64,12 @@ describe "DatabaseConnections" do
     
   end
   
-  describe "DELETE /database_connections/:id/edit" do
+  describe "DELETE /database_connections/:id" do
     before(:each) do
       @connection = Factory(:database_connection)
     end
       
-    it "display link for edit in list" do
+    it "display link for destroy in list" do
       visit database_connections_path
       page.should have_content(@connection.database)
       #evaluate_script 'window.confirm = function() { return true; }'

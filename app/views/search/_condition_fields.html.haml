@@ -1,0 +1,8 @@
+%span.fields.condition{"data-object-name" => f.object_name}
+  %legend
+  = f.attribute_fields do |a|
+    = render '/search/attribute_fields', f: a
+  = f.predicate_select
+  = f.value_fields do |v|
+    = render '/search/value_fields', f: v
+  =button_to_remove_fields icon("minus"), f, t("search.remove")
