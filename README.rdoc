@@ -1,14 +1,27 @@
-DB Explorer
-==
-How it can help you?
---
+# DB Explorer
+
+## How it can help you?
 
 Do you know that situations, when you would like to check something in your development or production DB and you don't want to run console.
 Thats the right time to use DB Explorer :)
 
 I know, there are similar solutions like phpMyAdmin or Adminer. But if you don't need all that functionality that they are offering you, then you can try simpler solution.
 
-Screenshots
--- 
-[List of database connections](https://s3.amazonaws.com/robinbortlik_github/DbExplorer.png  "Example 1") 
-[Detail of DB](https://s3.amazonaws.com/robinbortlik_github/DbExplorer2.png  "Example 1") 
+## Instalation
+
+* pull project
+    git clone https://robinbortlik@github.com/robinbortlik/db_explorer.git
+* setup config/database.yml
+* migrate db
+    bundle exec rake db:create
+    bundle exec rake db:migrate
+* start project :)
+    rails s
+  
+## Screenshots
+ 
+* [List of database connections](https://s3.amazonaws.com/robinbortlik_github/DbExplorer.png  "Example 1") 
+* [Detail of DB](https://s3.amazonaws.com/robinbortlik_github/DbExplorer2.png  "Example 1") 
+
+
+This project rocks and uses MIT-LICENSE.
