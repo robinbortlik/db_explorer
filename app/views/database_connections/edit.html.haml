@@ -1,0 +1,4 @@
+- model_class = @database_connection.class
+%h1= t '.title', :default => t('helpers.titles.edit', :model => model_class.model_name.human, |
+    :default => "Edit #{model_class.model_name.human}")                                      |
+= render :partial => 'form'

@@ -1,0 +1,17 @@
+- unless @model
+  .notice=t(".no_model")
+- else  
+  %table.table-condensed.table-striped.table-bordered.table
+    %thead
+      %tr
+        - @columns_names.each do |name|
+          %th= name
+  
+    %tbody    
+      - @collection.each do |res|
+        %tr
+          - @columns_names.each do |attr|
+            %td= res.send(attr)
+            
+            
+  = paginate @collection 

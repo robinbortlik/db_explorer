@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  database: db_explorer
+  username: postgres
+  password: 
+
+test:
+  adapter: postgresql
+  database: db_explorer_test
+  username: postgres
+  password: 
+
+production:
+  adapter: postgresql
+  database: db_explorer
+  username: root
+  password: 

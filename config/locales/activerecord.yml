@@ -1,0 +1,8 @@
+en:
+  activerecord:
+    errors:
+      models:
+        database_connection:
+          attributes:
+            database:
+              configuration_not_working: Not able to connect to this database

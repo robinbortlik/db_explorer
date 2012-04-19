@@ -1,0 +1,12 @@
+= simple_form_for @database_connection, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :adapter, :as => :select, :collection => [:sqlite3, :postgresql, :mysql]
+  = f.input :database
+  = f.input :password
+  = f.input :username
+  = f.input :host
+  = f.input :port
+  = f.input :encoding
+  .form-actions
+    = f.button :submit, :class => 'btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), |
+      database_connections_path, :class => 'btn'                   |

@@ -1,0 +1,45 @@
+- model_class = DatabaseConnection.new.class
+
+- unless @database_connections.any?
+
+  %p.notice
+    = t(".no_connection")
+    = link_to(t(".new"), new_database_connection_path)
+    !
+
+- else    
+
+  %h1= t '.title', :default => model_class.model_name.human.pluralize
+  %table.table.table-striped
+    %thead
+      %tr
+        %th= model_class.human_attribute_name(:database)
+        %th= model_class.human_attribute_name(:adapter)
+        %th= model_class.human_attribute_name(:password)
+        %th= model_class.human_attribute_name(:username)
+        %th= model_class.human_attribute_name(:host)
+        %th= model_class.human_attribute_name(:port)
+        %th= model_class.human_attribute_name(:encoding)
+        %th= t '.actions', :default => t("helpers.actions")
+    %tbody
+      - @database_connections.each do |database_connection|
+        %tr
+          %td= link_to database_connection.database, schemas_path(database_connection)
+          %td= database_connection.adapter
+          %td= t((!database_connection.password.blank?).to_s)
+          %td= database_connection.username
+          %td= database_connection.host
+          %td= database_connection.port
+          %td= database_connection.encoding  
+          %td
+            = link_to t('.edit', :default => t("helpers.links.edit")),                     
+              edit_database_connection_path(database_connection), :class => 'btn btn-mini' 
+          
+            = link_to t('.destroy', :default => t("helpers.links.destroy")),                                   
+              database_connection_path(database_connection),                                                  
+              :method => :delete,                                                                             
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), 
+              :class => 'btn btn-mini btn-danger'                                                             
+  = link_to t('.new', :default => t("helpers.links.new")), 
+    new_database_connection_path,                          
+    :class => 'btn btn-primary'                            

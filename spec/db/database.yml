@@ -1,0 +1,21 @@
+sqlite:
+  adapter: sqlite
+  database: spec/db/test.sqlite
+
+sqlite3:
+  adapter: sqlite3
+  database: spec/db/test.sqlite3
+
+postgresql:
+  adapter: postgresql
+  username: postgres
+  password: postgres
+  database: has_draft_plugin_test
+  min_messages: ERROR
+
+mysql:
+  adapter: mysql
+  host: localhost
+  username: root
+  password:
+  database: has_draft_plugin_test
