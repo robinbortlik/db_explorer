@@ -1,17 +1,33 @@
 - unless @model
   .notice=t(".no_model")
 - else  
-  %table.table-condensed.table-striped.table-bordered.table
+  
+  %h1= t '.title', :default => @name.humanize
+  
+  = link_to t('.new', :default => t("helpers.links.new")), 
+    new_abstract_path(@database_connection, name: @name),                          
+    :class => 'btn btn-primary pull-right'
+    
+  %table.table-condensed.table-striped.table
     %thead
       %tr
         - @columns_names.each do |name|
           %th= name
-  
+        %th= t(".actions")
+      
     %tbody    
       - @collection.each do |res|
         %tr
           - @columns_names.each do |attr|
             %td= res.send(attr)
-            
+          %td  
+            = link_to t('.edit', :default => t("helpers.links.edit")),                     
+              edit_abstract_path(res, connection_id: @database_connection.id, name: @name), :class => 'btn btn-mini' 
+
+            = link_to t('.destroy', :default => t("helpers.links.destroy")),                                   
+              abstract_path(res, connection_id: @database_connection.id, name: @name),                                                  
+              :method => :delete,                                                                             
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), 
+              :class => 'btn btn-mini btn-danger'
             
   = paginate @collection 

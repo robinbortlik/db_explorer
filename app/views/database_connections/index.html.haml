@@ -10,6 +10,11 @@
 - else    
 
   %h1= t '.title', :default => model_class.model_name.human.pluralize
+  
+  = link_to t('.new', :default => t("helpers.links.new")), 
+    new_database_connection_path,                          
+    :class => 'btn btn-primary pull-right'
+    
   %table.table.table-striped
     %thead
       %tr
@@ -40,6 +45,4 @@
               :method => :delete,                                                                             
               :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), 
               :class => 'btn btn-mini btn-danger'                                                             
-  = link_to t('.new', :default => t("helpers.links.new")), 
-    new_database_connection_path,                          
-    :class => 'btn btn-primary'                            
+                           

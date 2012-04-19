@@ -54,11 +54,11 @@ DbExplorer::Application.routes.draw do
   match "database_connections/:id/schemas" => "schemas#show", :as => :schemas
   match "database_connections/:id/schemas/:name" => "schemas#show", :as => :schema
   
-  get "abstract/:connection_id/schema/:name/:id" => "abstract#show", :as => :abstract
-  post "abstract/:connection_id/schema/:name/:id" => "abstract#create", :as => :abstract
-  put "abstract/:connection_id/schema/:name/:id" => "abstract#update", :as => :abstract
-  get "abstract/:connection_id/schema/:name/:id/edit" => "abstract#edit", :as => :edit_abstract
-  get "abstract/:connection_id/schema/:name/:id/new" => "abstract#new", :as => :new_abstract
+  delete "abstract/:connection_id/schema/:name/:id" => "abstract_objects#destroy", :as => :abstract
+  post "abstract/:connection_id/schema/:name/:id" => "abstract_objects#create", :as => :abstracts
+  put "abstract/:connection_id/schema/:name/:id" => "abstract_objects#update", :as => :abstract
+  get "abstract/:connection_id/schema/:name/:id/edit" => "abstract_objects#edit", :as => :edit_abstract
+  get "abstract/:connection_id/schema/:name/:id/new" => "abstract_objects#new", :as => :new_abstract
   
   root :to => 'database_connections#index'
 

@@ -33,9 +33,13 @@ class Schema
     Class.new ActiveRecord::Base do
       establish_connection config
       self.abstract_class = true
+      cattr_accessor :model_name
+      
       if table_name
          self.table_name = table_name
-      end  
+         self.model_name = ActiveModel::Name.new(self, nil, table_name.classify)
+      end 
+          
     end
   end 
   
