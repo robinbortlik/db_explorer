@@ -5,9 +5,10 @@
   %h1= t '.title', :default => @name.humanize
   =# render :partial => "search/search_form"
   
-  = link_to t('.new', :default => t("helpers.links.new")), 
-    new_abstract_path(@database_connection, name: @name),                          
-    :class => 'btn btn-primary pull-right'
+  - if @columns_names.include?(:id)
+    = link_to t('.new', :default => t("helpers.links.new")), 
+      new_abstract_path(@database_connection, name: @name),                          
+      :class => 'btn btn-primary pull-right'
     
   %table.table-condensed.table-striped.table
     %thead
@@ -22,13 +23,14 @@
           - @columns_names.each do |attr|
             %td= res.send(attr)
           %td  
-            = link_to t('.edit', :default => t("helpers.links.edit")),                     
-              edit_abstract_path(res, connection_id: @database_connection.id, name: @name), :class => 'btn btn-mini' 
+            - if res.respond_to?(:id) && !res.id.blank?
+              = link_to t('.edit', :default => t("helpers.links.edit")),                     
+                edit_abstract_path(res, connection_id: @database_connection.id, name: @name), :class => 'btn btn-mini' 
 
-            = link_to t('.destroy', :default => t("helpers.links.destroy")),                                   
-              abstract_path(res, connection_id: @database_connection.id, name: @name),                                                  
-              :method => :delete,                                                                             
-              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), 
-              :class => 'btn btn-mini btn-danger'
+              = link_to t('.destroy', :default => t("helpers.links.destroy")),                                   
+                abstract_path(res, connection_id: @database_connection.id, name: @name),                                                  
+                :method => :delete,                                                                             
+                :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), 
+                :class => 'btn btn-mini btn-danger'
             
   = paginate @collection 
