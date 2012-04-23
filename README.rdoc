@@ -1,8 +1,10 @@
 = DB Explorer
 
+Simple solution for MySQL, PostgreSQL and Sqlite.
+
 == How it can help you?
 
-Do you know that situations, when you would like to check something in your development or production DB and you don't want to run console.
+Do you know that situation, when you would like to check something in your development or production DB and you don't want to run console.
 Thats the right time to use DB Explorer :)
 
 I know, there are similar solutions like phpMyAdmin or Adminer. But if you don't need all that functionality that they are offering you, then you can try simpler solution.
