@@ -3,9 +3,9 @@
 - else  
   
   %h1= t '.title', :default => @name.humanize
-  =# render :partial => "search/search_form"
+  = render :partial => "search/search_form"
   
-  - if @columns_names.include?(:id)
+  - if @columns_names.include?("id")
     = link_to t('.new', :default => t("helpers.links.new")), 
       new_abstract_path(@database_connection, name: @name),                          
       :class => 'btn btn-primary pull-right'

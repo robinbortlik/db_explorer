@@ -3,15 +3,14 @@
 
 en:
   hello: "Hello world"
-  true: yes
-  false: no
-  
   
   
   database_connections:
     index:
       new: new
       no_connection: No connection to database created yet. Create 
+      "true": "yes"
+      "false": "no"
       
   schemas:
     show:
@@ -22,7 +21,10 @@ en:
     add_sort: Add sort
     conditions: Conditions
     add_condition: Add condition
-    remove: Remove    
+    remove: Remove
+    search_form:
+      search_and_sort: Search and Sort
+      conditions_added: conditions added    
     
   helpers:
     links:

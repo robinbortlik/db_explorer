@@ -9,4 +9,10 @@ class DatabaseConnectionsController < ApplicationController
     update!{collection_path}
   end  
   
+  
+  private
+    
+  def collection
+    @database_connections = DatabaseConnection.order("database ASC").page(params[:page])
+  end
 end
