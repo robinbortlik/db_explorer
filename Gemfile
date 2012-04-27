@@ -35,6 +35,7 @@ group :test, :development do
   gem "database_cleaner"
   gem 'factory_girl_rails'
   gem 'sqlite3'
+  gem 'rake'
 end
 
 # To use ActiveModel has_secure_password
