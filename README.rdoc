@@ -1,4 +1,4 @@
-!https://secure.travis-ci.org/robinbortlik/db_explorer.png?branch=master(Build Status)!:http://travis-ci.org/robinbortlik/db_explorer
+{<img src="https://secure.travis-ci.org/robinbortlik/db_explorer.png?branch=master" alt="Build Status" />}[http://travis-ci.org/robinbortlik/db_explorer]
 
 = DB Explorer
 
