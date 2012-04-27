@@ -1,3 +1,5 @@
+[![Build Status](https://secure.travis-ci.org/robinbortlik/db_explorer.png?branch=master)](http://travis-ci.org/robinbortlik/db_explorer)
+
 = DB Explorer
 
 Simple solution for MySQL, PostgreSQL and Sqlite.
