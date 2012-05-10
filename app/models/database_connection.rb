@@ -1,5 +1,3 @@
-require 'fileutils'
-
 class DatabaseConnection < ActiveRecord::Base
   validates :database, :adapter, :presence => :true
   validate :existing_file, :if => :sqlite3
