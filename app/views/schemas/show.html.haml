@@ -21,7 +21,11 @@
       - @collection.each do |res|
         %tr
           - @columns_names.each do |attr|
-            %td= res.send(attr)
+            %td
+              - if attr == "id"
+                = link_to(res.send(attr), abstract_path(res, connection_id: @database_connection.id, name: @name))
+              - else
+                = format_value(res.send(attr))
           %td  
             - if res.respond_to?(:id) && !res.id.blank?
               = link_to t('.edit', :default => t("helpers.links.edit")),                     

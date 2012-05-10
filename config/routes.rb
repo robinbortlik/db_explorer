@@ -59,6 +59,7 @@ DbExplorer::Application.routes.draw do
   put "abstract/:connection_id/schema/:name/:id" => "abstract_objects#update", :as => :abstract
   get "abstract/:connection_id/schema/:name/:id/edit" => "abstract_objects#edit", :as => :edit_abstract
   get "abstract/:connection_id/schema/:name/new" => "abstract_objects#new", :as => :new_abstract
+  get "abstract/:connection_id/schema/:name/:id" => "abstract_objects#show", :as => :abstract
   
   match "database_connections/:id/schemas/:name/search" => "schemas#search", :via => [:get, :post], :as => :search_schemas
   

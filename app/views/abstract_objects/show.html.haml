@@ -1,0 +1,22 @@
+%h1= t '.title', :default => t('helpers.titles.show', :model => @model_name, :default => "#{@model_name} detail")       
+%p.action-buttons
+  = link_to t('.destroy', :default => t("helpers.links.destroy")),  
+    abstract_path(@abstract_object, connection_id: @database_connection.id, name: @name),                                                  
+    :method => :delete,                                                                             
+    :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), 
+    :class => 'btn btn-danger pull-right'
+  
+  = link_to t('.edit', :default => t("helpers.links.edit")),  
+    edit_abstract_path(@abstract_object, connection_id: @database_connection.id, name: @name),
+    :class => 'btn btn-primary pull-right'
+    
+  = link_to t('.back', :default => t("helpers.links.back")), schema_path(@database_connection, name: @name),                     
+    :class => 'btn pull-right'
+
+  
+%table.table
+  - @schema.get_table_attributes(@name).each do |attr|
+    %tr
+      %th= attr
+      %td= @abstract_object.send(attr)
+  

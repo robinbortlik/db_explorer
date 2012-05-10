@@ -6,12 +6,12 @@ gem 'thin'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'pg'
-gem 'inherited_resources'
-gem 'simple_form'
-gem 'haml'
-gem 'twitter-bootstrap-rails'
-gem "kaminari"
+gem 'pg', '0.13.2'
+gem 'inherited_resources', '1.3.1'
+gem 'simple_form', '2.0.1'
+gem 'haml', '3.1.4'
+gem 'twitter-bootstrap-rails', '2.0.6'
+gem "kaminari", '0.13.0'
 gem "ransack", :git => "https://github.com/ernie/ransack.git"
 
 # Gems used only for assets and not required
@@ -26,7 +26,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+gem 'jquery-rails', '2.0.2'
 
 group :test, :development do
   gem "rspec-rails"

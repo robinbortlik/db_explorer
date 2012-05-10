@@ -25,7 +25,9 @@
           .container-fluid.nav-collapse
             %ul.nav
               - @database_connections.each do |database_connection|
-                %li= link_to database_connection.database, schemas_path(database_connection)
+                - selected = @database_connection && (database_connection == @database_connection)
+                %li= link_to database_connection.database, schemas_path(database_connection), 
+                  :class =>  selected ? "selected" : ""
         
     .container-fluid
       - [:notice, :error, :alert].each do |level| 
@@ -41,7 +43,9 @@
               %li.nav-header= t("list_of_tables")
               - if @schema
                 - @schema.get_tables.each do |table|
-                  %li= link_to table, schema_path(@database_connection, :name => table)
+                  - selected = @name && (table == @name)
+                  %li= link_to table, schema_path(@database_connection, :name => table),
+                    :class => selected ? "selected" : ""
         .span9
           = yield
       %footer
