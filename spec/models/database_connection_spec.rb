@@ -18,21 +18,33 @@ describe DatabaseConnection do
         connection.should_not be_valid
         connection.errors[attr].should_not be_blank
       end
-   end
+    end
    
     it "should try if connection is available" do    
-        connection = DatabaseConnection.new
-        connection.adapter = "postgresql"
-        connection.database = "some_bad_db_name"
-        connection.should_not be_valid
-        connection.errors[:database].should_not be_blank
+      connection = DatabaseConnection.new
+      connection.adapter = "postgresql"
+      connection.database = "some_bad_db_name"
+      connection.should_not be_valid
+      connection.errors[:database].should_not be_blank
         
-        connection.adapter = "sqlite3"
-        connection.database = "spec/db/test.sqlite3"
-        connection.should be_valid
-        connection.errors[:database].should be_blank
-      end
+      connection.adapter = "sqlite3"
+      connection.database = "spec/db/test.sqlite3"
+      connection.should be_valid
+      connection.errors[:database].should be_blank
+    end
+      
+    it "validate if file of slite3 database really exist" do
+      connection = DatabaseConnection.new
+      connection.adapter = "sqlite3"
+      connection.database = "spec/db/wrongdbname.sqlite3"
+      connection.should_not be_valid
+      connection.errors[:database].first.should == "File with database does not exist. Be sure you specify right path"
+      connection.database = "spec/db/test.sqlite3"
+      connection.should be_valid
+    end  
   end
+  
+  
   
   describe "configuration" do
     it "generate configuration" do

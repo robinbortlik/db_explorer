@@ -5,7 +5,7 @@
   = f.input :username
   = f.input :host
   = f.input :port
-  = f.input :encoding
+  = f.input :encoding, :collection => Encoding.name_list.sort, :selected => @database_connection.encoding || "UTF-8"
   .form-actions
     = f.button :submit, :class => 'btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), |
