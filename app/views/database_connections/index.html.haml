@@ -18,6 +18,7 @@
   %table.table.table-striped
     %thead
       %tr
+        %th= model_class.human_attribute_name(:title)
         %th= model_class.human_attribute_name(:database)
         %th= model_class.human_attribute_name(:adapter)
         %th= model_class.human_attribute_name(:password)
@@ -29,7 +30,8 @@
     %tbody
       - @database_connections.each do |database_connection|
         %tr
-          %td= link_to database_connection.database, schemas_path(database_connection)
+          %td= link_to database_connection, schemas_path(database_connection)
+          %td= database_connection.database
           %td= database_connection.adapter
           %td= t(".#{!database_connection.password.blank?}")
           %td= database_connection.username

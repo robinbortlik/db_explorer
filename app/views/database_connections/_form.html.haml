@@ -1,4 +1,5 @@
 = simple_form_for @database_connection, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :title, :hint => t(".title_hint")
   = f.input :adapter, :as => :select, :collection => [:sqlite3, :postgresql, :mysql2]
   = f.input :database
   = f.input :password

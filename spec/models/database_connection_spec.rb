@@ -53,4 +53,23 @@ describe DatabaseConnection do
     end  
   end
   
+  describe "title" do
+    it "respond to title" do
+      connection = Factory(:database_connection)
+      connection.should respond_to(:title)
+    end
+    
+    it "to_s return title " do
+      connection = Factory(:database_connection)
+      connection.title = "Database title"
+      connection.to_s.should == connection.title
+    end
+    
+     it "to_s return database name if title nil" do
+        connection = Factory(:database_connection)
+        connection.title = nil
+        connection.to_s.should == connection.database
+     end
+  end
+  
 end

@@ -9,6 +9,10 @@ class DatabaseConnection < ActiveRecord::Base
     {database: database, username: username, password: password, adapter: adapter, host: host, port: port, encoding: encoding}
   end
   
+  def to_s
+    title || database
+  end
+  
   private
   
   # Be sure the connection to DB is working before store configuration

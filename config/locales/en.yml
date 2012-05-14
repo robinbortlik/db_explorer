@@ -11,6 +11,8 @@ en:
       no_connection: No connection to database created yet. Create 
       "true": "yes"
       "false": "no"
+    form:
+      title_hint: "Leave blank, if you want to use database name"
       
   schemas:
     show:

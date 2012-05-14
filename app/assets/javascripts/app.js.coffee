@@ -4,6 +4,6 @@ $('document').ready ->
       footer: false
       cloneHeadToFoot: false
       fixedColumn: true 
-      height: "#{$(window).height() - 300}"
+      height: "#{$(window).height() - 250}"
       width: "#{$(window).width() - 400}"
       fixedColumns: 2

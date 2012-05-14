@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120405065641) do
+ActiveRecord::Schema.define(:version => 20120514121118) do
 
   create_table "database_connections", :force => true do |t|
     t.string  "adapter",  :null => false
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20120405065641) do
     t.string  "host"
     t.string  "encoding"
     t.integer "port"
+    t.string  "title"
   end
 
 end
