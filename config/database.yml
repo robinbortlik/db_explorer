@@ -1,17 +1,17 @@
 development:
   adapter: postgresql
   database: db_explorer
-  username: postgres
+  username: robinbortlik
   password: 
 
 test:
   adapter: postgresql
   database: db_explorer_test
-  username: postgres
+  username: robinbortlik
   password: 
 
 production:
   adapter: postgresql
   database: db_explorer
-  username: postgres
+  username: robinbortlik
   password: 

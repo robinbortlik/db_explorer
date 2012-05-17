@@ -7,6 +7,7 @@ gem 'thin'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg', '0.13.2'
+#gem 'mysql2'
 gem 'inherited_resources', '1.3.1'
 gem 'simple_form', '2.0.1'
 gem 'haml', '3.1.4'
