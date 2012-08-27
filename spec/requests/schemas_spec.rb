@@ -26,6 +26,8 @@ describe "Schemas" do
         page.should have_content("text_1")
         page.should have_content("date_1")	
         page.should have_content("integer_1")
+        page.should have_content("country")
+        page.should have_content("state")
       end
     end
   end

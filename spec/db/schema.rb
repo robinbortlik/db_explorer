@@ -6,6 +6,8 @@ ActiveRecord::Schema.define(:version => 0) do
     t.text :text_1, :limit => 5
     t.date :date_1
     t.integer :integer_1
+    t.string :country
+    t.string :state
   end
   
 end

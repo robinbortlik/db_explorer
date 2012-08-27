@@ -13,6 +13,6 @@ class DatabaseConnectionsController < ApplicationController
   private
     
   def collection
-    @database_connections = DatabaseConnection.order("database ASC").page(params[:page])
+    @database_connections = DatabaseConnection.order("database_connections.database ASC").page(params[:page])
   end
 end
