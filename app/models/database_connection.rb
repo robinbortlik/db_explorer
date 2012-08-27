@@ -10,7 +10,7 @@ class DatabaseConnection < ActiveRecord::Base
   end
   
   def to_s
-    title || database
+    title.present? ? title : database
   end
   
   private

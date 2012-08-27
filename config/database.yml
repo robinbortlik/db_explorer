@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
   database: db_explorer
-  username: robinbortlik
+  username: postgres
   password: 
 
 test:
