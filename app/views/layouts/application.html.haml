@@ -26,36 +26,32 @@
             %ul.nav
               - @database_connections.each do |database_connection|
                 - selected = @database_connection && (database_connection == @database_connection)
-                %li= link_to database_connection, schemas_path(database_connection), 
+                %li= link_to database_connection, schemas_path(database_connection),
                   :class =>  selected ? "selected" : ""
-        
+
     .container-fluid
-      - [:notice, :error, :alert].each do |level| 
-        - unless flash[level].blank? 
+      - [:notice, :error, :alert].each do |level|
+        - unless flash[level].blank?
           .alert{:class => flash_class(level)}
             %a.close{:href => "#", :"data-dismiss"=>"alert"} ×
             = content_tag :p, flash[level]
-            
-      .row-fluid
-        .span3
-          .well.sidebar-nav
-            %ul.nav.nav-list
-              %li.nav-header= t("list_of_tables")
-              - if @schema
-                - @schema.get_tables.each do |table|
-                  - selected = @name && (table == @name)
-                  %li= link_to table, schema_path(@database_connection, :name => table),
-                    :class => selected ? "selected" : ""
-        .span9
-          = yield
+    .container-fluid
+      %ul.nav.tables_list
+        - if @schema
+          %li.nav-header= t("list_of_tables")
+          - @schema.get_tables.each do |table|
+            - selected = @name && (table == @name)
+            %li= link_to table, schema_path(@database_connection, :name => table),
+              :class => selected ? "selected" : ""
+      = yield
       %footer
-  
+
     = javascript_include_tag "application"
     :javascript
         $(function() {
           #{yield :document_ready}
         });
-    
+
     - if !(flash[:notice] || flash[:error] || flash[:alert]).blank?
       :javascript
         $(".alert").alert()

@@ -9,7 +9,7 @@ describe "Schemas" do
     
     it "display  table names" do
       visit schemas_path(@connection)
-      within "div.sidebar-nav" do 
+      within "ul.tables_list" do
         page.should have_content("articles")
         page.should have_content("schema_migrations")
       end
