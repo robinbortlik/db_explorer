@@ -1,18 +1,18 @@
 class DatabaseConnectionsController < ApplicationController
   inherit_resources
-  
+
   def create
     create!{collection_path}
-  end  
-  
+  end
+
   def update
     update!{collection_path}
-  end  
-  
-  
+  end
+
+
   private
-    
+
   def collection
-    @database_connections = DatabaseConnection.order("database_connections.database ASC").page(params[:page])
+    @database_connections = DatabaseConnection.order("`database_connections`.`database` ASC").page(params[:page])
   end
 end
