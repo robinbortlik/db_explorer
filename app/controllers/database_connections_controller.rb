@@ -13,6 +13,7 @@ class DatabaseConnectionsController < ApplicationController
   private
 
   def collection
-    @database_connections = DatabaseConnection.order("`database_connections`.`database` ASC").page(params[:page])
+    order = ActiveRecord::Base.connection.adapter_name == 'Mysql2' ? "`database_connections`.`database` ASC" : "database_connections.database ASC"
+    @database_connections = DatabaseConnection.order(order).page(params[:page])
   end
 end

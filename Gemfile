@@ -1,17 +1,18 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.12'
+gem 'rails', '3.2.13'
 gem 'thin'
 
 
-gem 'pg', '0.13.2'
+gem 'pg'
 gem 'mysql2'
 gem 'inherited_resources', '1.3.1'
 gem 'simple_form', '2.0.1'
 gem 'haml', '3.1.4'
-gem 'twitter-bootstrap-rails', '2.0.6'
+gem 'sass', '3.2.9'
+gem 'twitter-bootstrap-rails'
 gem "kaminari", '0.13.0'
-gem "ransack", '0.7.0', :git => "git://github.com/ernie/ransack.git"
+gem "ransack", '0.7.3', :git => "git://github.com/ernie/ransack.git"
 gem "country_select", '1.0.1'
 
 group :assets do
