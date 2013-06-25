@@ -1,8 +1,7 @@
 language: ruby
 rvm:
-  - 1.9.2
   - 1.9.3
 
 before_script:
   - psql -c 'create database db_explorer_test;' -U postgres
-  - rake db:migrate  
+  - rake db:migrate
