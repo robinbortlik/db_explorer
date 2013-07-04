@@ -10,6 +10,8 @@ gem 'inherited_resources', '1.3.1'
 gem 'simple_form', '2.0.1'
 gem 'haml', '3.1.4'
 gem 'sass', '3.2.9'
+gem "therubyracer"
+gem "less-rails"
 gem 'twitter-bootstrap-rails'
 gem "kaminari", '0.13.0'
 gem "ransack", '0.7.3', :git => "git://github.com/ernie/ransack.git"

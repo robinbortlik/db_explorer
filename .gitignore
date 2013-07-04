@@ -15,3 +15,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore bundled gems and binstubs
+/vendor/bundle
+/bin
