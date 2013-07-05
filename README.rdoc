@@ -11,7 +11,7 @@ Thats the right time to use DB Explorer :)
 
 I know, there are similar solutions like phpMyAdmin or Adminer. But if you don't need all that functionality that they are offering you, then you can try simpler solution.
 
-== Instalation
+== Installation
 
 * pull project
     git clone https://robinbortlik@github.com/robinbortlik/db_explorer.git
