@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.14'
 gem 'thin'
 
 
@@ -13,8 +13,8 @@ gem 'sass', '3.2.9'
 gem "therubyracer"
 gem "less-rails"
 gem 'twitter-bootstrap-rails'
-gem "kaminari", '0.13.0'
-gem "ransack", '0.7.3', :git => "git://github.com/ernie/ransack.git"
+gem "kaminari"
+gem "ransack"
 gem "country_select", '1.0.1'
 
 group :assets do
