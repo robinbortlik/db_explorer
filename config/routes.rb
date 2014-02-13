@@ -48,24 +48,26 @@ DbExplorer::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  
+
   resources :database_connections, :except => [:show]
-  
-  get "database_connections/:id/schemas" => "schemas#show", :as => :schemas
+
+  get "database_connections/:id/schemas(/:name)" => "schemas#show", :as => :schemas
   get "database_connections/:id/schemas/:name" => "schemas#show", :as => :schema
-  
-  delete "abstract/:connection_id/schema/:name/:id" => "abstract_objects#destroy", :as => :abstract
-  post "abstract/:connection_id/schema/:name" => "abstract_objects#create", :as => :abstracts
-  put "abstract/:connection_id/schema/:name/:id" => "abstract_objects#update", :as => :abstract
-  get "abstract/:connection_id/schema/:name/:id/edit" => "abstract_objects#edit", :as => :edit_abstract
-  get "abstract/:connection_id/schema/:name/new" => "abstract_objects#new", :as => :new_abstract
-  get "abstract/:connection_id/schema/:name/:id" => "abstract_objects#show", :as => :abstract
-  
+
+  scope "abstract/:connection_id/schema/:name/" do
+   resource :abstract
+    # delete ":id" => "abstract_objects#destroy", :as => :abstract
+    # post "abstract/:connection_id/schema/:name" => "abstract_objects#create", :as => :abstracts
+    # put "abstract/:connection_id/schema/:name/:id" => "abstract_objects#update", :as => :abstract
+    # get "abstract/:connection_id/schema/:name/:id/edit" => "abstract_objects#edit", :as => :edit_abstract
+    # get "abstract/:connection_id/schema/:name/new" => "abstract_objects#new", :as => :new_abstract
+    # get "abstract/:connection_id/schema/:name/:id" => "abstract_objects#show", :as => :abstract
+  end
   match "database_connections/:id/schemas/:name/search" => "schemas#search", :via => [:get, :post], :as => :search_schemas
-  
+
   root :to => 'database_connections#index'
 
-  
+
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

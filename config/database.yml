@@ -1,17 +1,17 @@
 development:
-  adapter: postgresql
+  adapter: mysql2
   database: db_explorer
-  username: postgres
+  username: root
   password:
 
 test:
-  adapter: postgresql
+  adapter: mysql2
   database: db_explorer_test
-  username: postgres
+  username: root
   password:
 
 production:
-  adapter: postgresql
+  adapter: mysql2
   database: db_explorer
-  username: postgres
+  username: root
   password:

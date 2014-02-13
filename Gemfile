@@ -1,29 +1,32 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.14'
+gem 'rails', '4.0.2'
 gem 'thin'
 
 
 gem 'pg'
 gem 'mysql2'
-gem 'inherited_resources', '1.3.1'
-gem 'simple_form', '2.0.1'
-gem 'haml', '3.1.4'
-gem 'sass', '3.2.9'
+gem 'inherited_resources'
+gem 'simple_form'
+gem 'haml'
+gem 'sass'
 gem "therubyracer"
 gem "less-rails"
 gem 'twitter-bootstrap-rails'
 gem "kaminari"
 gem "ransack"
 gem "country_select", '1.0.1'
+gem "turbolinks"
+gem 'protected_attributes'
+gem 'nprogress-rails'
 
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
 end
 
-gem 'jquery-rails', '2.0.2'
+gem 'jquery-rails'
 
 group :test, :development do
   gem "rspec-rails"

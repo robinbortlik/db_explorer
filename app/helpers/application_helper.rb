@@ -1,5 +1,5 @@
 module ApplicationHelper
-  
+
   def flash_class(level)
     case level
       when :notice then "info"
@@ -7,25 +7,25 @@ module ApplicationHelper
       when :alert then "warning"
     end
   end
-  
+
   def icon(icon_type)
     content_tag(:i, '', :class => "icon-#{icon_type}")
   end
-  
+
   def search_conditions_count(search_hash = {})
     count = 0
     count += search_hash[:c].keys.count if search_hash[:c]
     count += search_hash[:s].keys.count if search_hash[:s]
-  end  
-  
+  end
+
   def setup_search_form(builder)
     content_for :document_ready, %Q{
       var search = new Search();
-      $('a.add_fields').live('click', function() {
+      $(document).on('click', 'a.add_fields', function() {
         search.add_fields(this, $(this).data('fieldType'), $(this).data('content'));
         return false;
       });
-      $('a.remove_fields').live('click', function() {
+      $(document).on('click', 'a.remove_fields', function() {
         search.remove_fields(this);
         return false;
       });
@@ -43,13 +43,13 @@ module ApplicationHelper
     end
     content_tag :a, name, :class => 'add_fields btn btn-mini btn-primary', :title => title, 'data-field-type' => type, 'data-content' => "#{fields}"
   end
-  
+
   def format_value(value)
     case value
     when String then truncate(value, :length => 40)
     else
       value
-    end    
+    end
   end
-    
+
 end
