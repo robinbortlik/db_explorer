@@ -2,7 +2,7 @@
 
 = simple_form_for @abstract_object, :as => "abstract_object", :url=> url, :html => { :class => 'form-horizontal' } do |f|
   - @schema.get_table_attributes(@name).each do |attr|
-    = f.input attr
+    = f.input attr, disabled: attr == "id"
   .form-actions
     = f.button :submit, :class => 'btn-primary'
-    = link_to t('.cancel', :default => t("helpers.links.cancel")), schema_path(@database_connection, name: @name), :class => 'btn'                 
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), schema_path(@database_connection, name: @name), :class => 'btn'

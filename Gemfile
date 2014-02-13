@@ -17,7 +17,6 @@ gem "kaminari"
 gem "ransack"
 gem "country_select", '1.0.1'
 gem "turbolinks"
-gem 'protected_attributes'
 gem 'nprogress-rails'
 
 group :assets do
@@ -29,6 +28,7 @@ end
 gem 'jquery-rails'
 
 group :test, :development do
+  gem 'pry'
   gem "rspec-rails"
   gem "capybara"
   gem "launchy"

@@ -1,3 +1,5 @@
+require 'digest/md5'
+
 class Schema
 
   def initialize(config)
@@ -29,19 +31,23 @@ class Schema
   private
 
   # Dynamicly define models (classes which inherit from ActiveRecord::Base) and set dynamicly the name of table
-  def define_class(config, table_name = nil)
+  def define_class(config, table_name_string = nil)
     Class.new ActiveRecord::Base do
+      def self.random_name
+        (0...8).map { (65 + rand(26)).chr }.join
+      end
+
       def self.name
-        self.object_id.to_s
+        @name ||= random_name.classify
       end
 
       establish_connection config
-      self.abstract_class = true
+      self.abstract_class = false
       cattr_accessor :model_name
 
-      if table_name
-        self.table_name = table_name
-        self.model_name = ActiveModel::Name.new(self, nil, table_name.classify)
+      if table_name_string
+        self.table_name = table_name_string
+        self.model_name = ActiveModel::Name.new(self, nil, table_name_string.classify)
       end
 
     end

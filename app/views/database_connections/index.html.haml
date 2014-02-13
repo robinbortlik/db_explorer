@@ -7,14 +7,14 @@
     = link_to(t(".new"), new_database_connection_path)
     !
 
-- else    
+- else
 
   %h1= t '.title', :default => model_class.model_name.human.pluralize
-  
-  = link_to t('.new', :default => t("helpers.links.new")), 
-    new_database_connection_path,                          
+
+  = link_to t('.new', :default => t("helpers.links.new")),
+    new_database_connection_path,
     :class => 'btn btn-primary pull-right'
-    
+
   %table.table.table-striped
     %thead
       %tr
@@ -37,15 +37,15 @@
           %td= database_connection.username
           %td= database_connection.host
           %td= database_connection.port
-          %td= database_connection.encoding  
+          %td= database_connection.encoding
           %td
-            = link_to t('.edit', :default => t("helpers.links.edit")),                     
-              edit_database_connection_path(database_connection), :class => 'btn btn-mini' 
-          
-            = link_to t('.destroy', :default => t("helpers.links.destroy")),                                   
-              database_connection_path(database_connection),                                                  
-              :method => :delete,                                                                             
-              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), 
-              :class => 'btn btn-mini btn-danger'                                                             
-                           
+            = link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_database_connection_path(database_connection), :class => 'btn btn-mini'
+
+            = link_to t('.destroy', :default => t("helpers.links.destroy")),
+              database_connection_path(database_connection),
+              :method => :delete,
+              :data => {:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?'))},
+              :class => 'btn btn-mini btn-danger'
+
   = paginate @database_connections
