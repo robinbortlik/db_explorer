@@ -4,7 +4,7 @@ module Ransack
     attr_accessor :auth_object, :search_key
 
     def initialize(object, options = {})
-      @object = object.scoped
+      @object = object.all
       @klass = @object.klass
       @join_dependency = join_dependency(@object)
       @join_type = options[:join_type] || Arel::OuterJoin

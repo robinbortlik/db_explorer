@@ -15,7 +15,7 @@ gem "less-rails"
 gem 'twitter-bootstrap-rails'
 gem "kaminari"
 gem "ransack"
-gem "country_select", '1.0.1'
+gem "country_select"
 gem "turbolinks"
 gem 'nprogress-rails'
 
