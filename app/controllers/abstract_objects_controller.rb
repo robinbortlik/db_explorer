@@ -4,7 +4,6 @@ class AbstractObjectsController < ApplicationController
 
   before_filter :setup_class
 
-
   def create
     create!{schema_path(@database_connection, name: @name)}
   end

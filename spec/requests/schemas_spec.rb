@@ -18,7 +18,7 @@ describe "Schemas" do
 
     it "display table content" do
       visit schemas_path(@connection)
-      click_link "articles"
+      select "articles", from: "List of tables"
       within "table.table" do
         page.should have_content("id")
         page.should have_content("string_1")

@@ -5,6 +5,10 @@
   %h1= t '.title', :default => @name.humanize
   = render :partial => "search/search_form"
 
+  = link_to t('.export', :default => t("helpers.links.export")),
+      schema_path(@database_connection, name: @name, format: :csv),
+      :class => 'btn btn-danger pull-right'
+
   - if @columns_names.include?("id")
     = link_to t('.new', :default => t("helpers.links.new")),
       new_abstract_path(@database_connection, name: @name),
@@ -38,3 +42,8 @@
                 :class => 'btn btn-mini btn-danger'
 
   = paginate @collection
+  .page-info= page_entries_info @collection
+  = form_tag schema_path(@database_connection, name: @name), method: :get, class: 'form-inline' do
+    = label_tag :per_page, t('.per_page', :default => t("helpers.per_page"))
+    = text_field_tag :per_page, get_per_page(@database_connection.id, @name), class: "small"
+    = submit_tag "Change", :class => 'btn-primary'

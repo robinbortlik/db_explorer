@@ -52,4 +52,9 @@ module ApplicationHelper
     end
   end
 
+  def get_per_page(connection_id, name)
+    key = "search_#{connection_id}_#{name}_per_page"
+    session[key] || Kaminari.config.default_per_page
+  end
+
 end

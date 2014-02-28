@@ -1,4 +1,5 @@
 require 'digest/md5'
+require 'csv'
 
 class Schema
 
@@ -25,6 +26,15 @@ class Schema
   # Return all instantiated classes (models) for connection
   def get_schemas
     @schemas
+  end
+
+  def self.to_csv(column_names, collection)
+    CSV.generate do |csv|
+      csv << column_names
+      collection.each do |obj|
+        csv << obj.attributes.values_at(*column_names)
+      end
+    end
   end
 
 

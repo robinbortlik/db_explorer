@@ -3,21 +3,18 @@
 
 en:
   hello: "Hello world"
-  
-  
+  list_of_tables: "List of tables"
   database_connections:
     index:
       new: new
-      no_connection: No connection to database created yet. Create 
+      no_connection: No connection to database created yet. Create
       "true": "yes"
       "false": "no"
     form:
       title_hint: "Leave blank, if you want to use database name"
-      
   schemas:
     show:
       no_model: Please select some table from list
-      
   search:
     sorting: Sorting
     add_sort: Add sort
@@ -26,8 +23,7 @@ en:
     remove: Remove
     search_form:
       search_and_sort: Search and Sort
-      conditions_added: conditions added    
-    
+      conditions_added: conditions added
   helpers:
     links:
       cancel: Cancel

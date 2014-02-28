@@ -1,4 +1,4 @@
-$('document').ready ->
+$(document).on "page:change", ->
   setTimeout ->
     $("table.table-condensed.table-striped.table").fixedHeaderTable
       footer: false
@@ -8,3 +8,8 @@ $('document').ready ->
       width: "#{$(window).width() - 400}"
       fixedColumns: 2
   , 500
+
+
+  $("#table-list").on 'change', (e) ->
+    url = $(e.target).data("url") + "/#{$(e.target).val()}"
+    Turbolinks.visit url
