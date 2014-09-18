@@ -41,7 +41,7 @@
         - if @schema
           %li.nav-header
             = label_tag t("list_of_tables")
-            = select_tag :name, options_for_select(@schema.get_tables, @name), id: "table-list", style: "width:300px", data: {url: schemas_path(@database_connection)}
+            = select_tag :name, options_for_select(@schema.get_tables, @name), id: "table-list", style: "width:300px", data: {url: schemas_path(@database_connection)}, include_blank: true
       = yield
       %footer
 
