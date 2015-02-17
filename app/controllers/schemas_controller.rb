@@ -22,7 +22,7 @@ class SchemasController < ApplicationController
       params[:q] = get_search_params_from_session(@database_connection.id, @name)
       @columns_names = @schema.get_table_attributes(@name)
       @model = @schema.get_schemas[@name]
-      @search = @model.search(params[:q], :engine => @model)
+      @search = @model.ransack(params[:q], :engine => @model)
       @collection =  @search.result.page(params[:page]).per(get_per_page(@database_connection.id, @name))
     end
   end
